@@ -14,7 +14,9 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -35,8 +37,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 */
 
 	BufferedImage backgroundImage;
-
-
+	
 	@Override
 	public void run() {
 		try {
@@ -54,6 +55,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.addMouseListener(this);
 	}
 
 	private void loadBackgroundImage() throws Exception {
@@ -73,8 +75,19 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		MediaPalace mp = new MediaPalace();
 		
-	}
+		System.out.println(backgroundImage.getRGB(e.getX(), e.getY()));
+		if (backgroundImage.getRGB(e.getX(), e.getY()) == -4410751) {
+			JOptionPane.showMessageDialog(null, "https://www.youtube.com/watch?v=gYVZPa4aC1M");
+		}
+		if (backgroundImage.getRGB(e.getX(), e.getY()) == -3957143) {
+			JOptionPane.showMessageDialog(null, "https://www.youtube.com/watch?v=brNGDA5R048");
+		}
+		if (backgroundImage.getRGB(e.getX(), e.getY()) == -2113411) {
+			JOptionPane.showMessageDialog(null, "https://www.youtube.com/watch?v=8mkofgRW1II");
+		}
+		}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
