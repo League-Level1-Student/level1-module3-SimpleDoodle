@@ -12,7 +12,10 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -26,7 +29,17 @@ public class Jukebox implements Runnable {
 
 		// 1. Find an mp3 on your computer or on the Internet.
 		// 2. Create a Song object for that mp3
-
+    	JFrame frame = new JFrame();
+    	JPanel panel = new JPanel();
+    	JButton button1 = new JButton();
+    	JButton button2 = new JButton();
+    	frame.add(panel);
+    	panel.add(button1);
+    	panel.add(button2);
+    	frame.show(true);
+    	button1.getMouseListeners();
+    	button1.setText("Starbucks");
+    	new Song("starbucks.mp3").play();
 		// 3. Play the Song
 
 		/*
