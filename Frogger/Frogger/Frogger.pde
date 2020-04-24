@@ -5,6 +5,17 @@ int frogX = 400;
 int frogY = 550;
 int carX = 750;
 int carY = 200;
+int size = 150;
+  boolean intersects(Car car) {
+ if ((frogY > car.getY() && frogY < car.getY()+50) &&
+                (frogX > car.getX() && frogX < car.getX()+car.getSize())) {
+                  frogY=550;
+   return true;
+  }
+ else  {
+  return false;
+}
+ }
 Car car1 = new Car();
 Car car2 = new Car();
 void draw() {
@@ -12,26 +23,32 @@ void draw() {
   fill(40, 255, 0);
   ellipse(frogX, frogY, 50, 50);
   car1.display1();
-  car2.display2();
+intersects(car1);
 }
-public class Car{
- void display1()
+public class Car {
+  public int getX(){
+    return carX;
+  }
+  public int getY(){
+    return carY;
+  }
+  public int getSize(){
+  return size;
+  }
+  void display1()
   {
-    fill(0,255,0);
-    rect(carX , carY,  150, 50);
-    if(carX <= 750){
+    fill(0, 255, 0);
+    rect(carX, carY, size, 50);
+    if (carX <= 750) {
       carX = carX-10;
-      if(carX == -200){
-       carX=750; 
+      if (carX == -200) {
+        carX=750;
       }
     }
   } 
-  void display2()
-  {
-    fill(0,255,0);
-    rect(-100 , 400,  150, 50);
-  } 
-}
+
+  }
+
 void keyPressed()
 {
   if (key == CODED) {
